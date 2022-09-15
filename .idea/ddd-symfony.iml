@@ -63,6 +63,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/tactician-container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/tactician-logger" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/tactician-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

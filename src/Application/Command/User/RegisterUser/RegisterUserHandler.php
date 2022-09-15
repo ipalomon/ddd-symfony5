@@ -2,8 +2,8 @@
 
 namespace App\Application\Command\User\RegisterUser;
 
+use App\Application\Command\CommandHandlerInterface;
 use App\Domain\User\Model\User as UserModel;
-use App\Application\CommandHandlerInterface;
 use App\Infrastructure\User\Repository\User;
 use App\Infrastructure\User\Repository\UserRepository;
 
@@ -16,7 +16,7 @@ class RegisterUserHandler implements CommandHandlerInterface
         $this->repository = $repository;
     }
 
-    public function handle(RegisterUserCommand $command)
+    public function __invoke(RegisterUserCommand $command)
     {
         $newUser = UserModel::createUser($command->firsName(), $command->lastName(), $command->username(), $command->password());
 

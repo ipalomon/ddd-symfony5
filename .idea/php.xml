@@ -60,6 +60,9 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-container" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-logger" />
+      <path value="$PROJECT_DIR$/vendor/league/tactician-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

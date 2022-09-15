@@ -66,7 +66,7 @@ class User
 
     public static function createUser($firstName, $lastName, $username, $password):User{
         $userArray = array(
-            'id' => null,
+            'id' => 0,
             'firstname' => $firstName,
             'lastname' => $lastName,
             'username' => $username,
