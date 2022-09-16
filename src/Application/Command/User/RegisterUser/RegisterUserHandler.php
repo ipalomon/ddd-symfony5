@@ -20,6 +20,7 @@ class RegisterUserHandler implements CommandHandlerInterface
     {
         $newUser = UserModel::createUser($command->firsName(), $command->lastName(), $command->username(), $command->password());
 
+        // User repository
         $user = new User();
         $user->setFirstName($newUser->firstName());
         $user->setLastName($newUser->lastName());
