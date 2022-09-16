@@ -2,10 +2,6 @@
 
 namespace App\Domain\User\Model;
 
-use App\Domain\User\ValueObjects\FullName;
-use App\Domain\User\ValueObjects\Id;
-use App\Domain\User\ValueObjects\Password;
-
 class User
 {
     /**
@@ -33,7 +29,7 @@ class User
      */
     private string $password;
 
-    public function id(): int
+    public function id(): ?int
     {
         return $this->id;
     }
@@ -59,15 +55,12 @@ class User
     }
 
     public static function constructor(int $id, string $firstName, string $lastName, string $username, string $password) :self{
-        $fullName = new FullName($firstName, $lastName);
-        $idVo = new Id($id);
-        $passwd = new Password($password);
         $user = new self();
-        $user->id = $idVo->getId();
-        $user->firstName = $fullName->getFirstName();
-        $user->lastName = $fullName->getLastName();
+        $user->id = $id;
+        $user->firstName = $firstName;
+        $user->lastName = $lastName;
         $user->userName = $username;
-        $user->password = $passwd->getPassword();
+        $user->password = $password;
         return $user;
     }
 
