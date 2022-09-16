@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Ejemplo de Implementación de una ApiRes que crea un usuario.
+Ejemplo de Implementación de una ApiRes que crea un usuario. Se parte de la base de que el lector tiene un nivel alto de programación y conoce Symfony 5 con cierta profundidad
 
 ## Infrastructure Stack
 
