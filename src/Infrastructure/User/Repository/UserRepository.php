@@ -2,18 +2,18 @@
 
 namespace App\Infrastructure\User\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Infrastructure\Share\Repository\EntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<User>
+ * @extends EntityRepository<User>
  *
  * @method \App\Infrastructure\User\Repository\User|null find($id, $lockMode = null, $lockVersion = null)
  * @method \App\Infrastructure\User\Repository\User|null findOneBy(array $criteria, array $orderBy = null)
  * @method \App\Infrastructure\User\Repository\User[]    findAll()
  * @method \App\Infrastructure\User\Repository\User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends ServiceEntityRepository
+class UserRepository extends EntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
