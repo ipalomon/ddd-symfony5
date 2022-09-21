@@ -7,6 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testGetters(){
         $data = UserDummyData::userData();
         $user = User::deserialize($data);
@@ -18,6 +21,9 @@ class UserTest extends TestCase
         self::assertEquals($data['password'], $user->firstName());
     }
 
+    /**
+     * @return void
+     */
     public function testUserInstanceofUserModel(){
         $data = User::deserialize(UserDummyData::userData());
 

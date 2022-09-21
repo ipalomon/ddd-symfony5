@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\User\ValueObjects;
 
@@ -11,7 +12,7 @@ class Password
      */
     public function __construct(string $password)
     {
-        if ($password === "" ){
+        if (empty(trim($password))){
             throw new \InvalidArgumentException("The password should be no empty: {$password}.");
         }
 

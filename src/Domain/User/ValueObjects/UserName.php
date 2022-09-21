@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\User\ValueObjects;
 
@@ -11,7 +12,7 @@ class UserName
      */
     public function __construct(string $username)
     {
-        if ($username === "" ){
+        if (empty(trim($username))){
             throw new \InvalidArgumentException("The user name should be no empty: {$username}.");
         }
 

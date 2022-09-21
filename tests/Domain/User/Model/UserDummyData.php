@@ -4,6 +4,9 @@ namespace App\Tests\Domain\User\Model;
 
 class UserDummyData
 {
+    /**
+     * @return array
+     */
     public static function userData():array
     {
         return array(

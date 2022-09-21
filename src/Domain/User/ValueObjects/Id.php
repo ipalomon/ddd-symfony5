@@ -11,7 +11,7 @@ class Id
     private int $id;
 
     public function __construct(int $id){
-        if($id < 0){
+        if($id < 0 || $id == null) {
             throw new \InvalidArgumentException("The id should be not negative: {$id}.");
         }
         $this->id = $id;

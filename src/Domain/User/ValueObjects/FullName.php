@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\User\ValueObjects;
 
@@ -19,11 +20,11 @@ class FullName
      */
     public function __construct(string $firstName, string $lastName)
     {
-        if ($firstName === "" ){
+        if (empty(trim($firstName))){
             throw new \InvalidArgumentException("The first name should be no empty: {$firstName}.");
         }
 
-        if ($lastName === "" ){
+        if (empty(trim($lastName))){
             throw new \InvalidArgumentException("The last name should be no empty: {$lastName}.");
         }
 
