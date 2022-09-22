@@ -15,7 +15,7 @@
    Crea la tabla en la BBDD
    php bin/console doctrine:migrations:migrate
 
-   Para consultas desde la linea de comando pe: php bin/console dbal:run-sql 'SELECT * FROM product
+   Para consultas desde la línea de comando pe: php bin/console dbal:run-sql 'SELECT * FROM product
 
 4) Instalar tactician
    Añadir en services.yaml
@@ -99,3 +99,41 @@ Si usas tambien commandQuery y commandEvents además tendrías que añadir
 "league/tactician-doctrine": "^1.1",
 
 Una vez hecho esto hacer composer update.
+
+## TEST
+
+1) - composer require --dev symfony/test-pack
+
+### Datos prueba
+
+1) Actualizar .env.tst con la url de la BBDD
+2) - php bin/console --env=test doctrine:database:create
+3) - php bin/console --env=test doctrine:schema:create
+4) Las pruebas deben ser independientes entre sí para evitar efectos secundarios. Por ejemplo, si alguna prueba modifica la base de datos (agregando o quitando una entidad) podría cambiar los resultados de otras pruebas.
+
+DAMADoctrineTestBundle usa transacciones de Doctrine para permitir que cada prueba interactúe con una base de datos no modificada. Instálalo usando:
+- composer require --dev dama/doctrine-test-bundle
+
+Ahora, habilítelo como una extensión de PHPUnit:
+
+<!-- phpunit.xml.dist -->
+<phpunit>
+    <!-- ... -->
+
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+    </extensions>
+</phpunit>
+
+ver más https://github.com/dmaicher/doctrine-test-bundle
+
+### Cargar datos de prueba
+
+1) - composer require --dev doctrine/doctrine-fixtures-bundle
+2) generar una entidad vacia para pruebas con el sufijo Fxture pe:
+
+- php bin/console make:fixtures
+
+Luego para llenarla usar la clase del repositorio, la entidad y llenarla.
+
+3) - php bin/console --env=test doctrine:fixtures:load
