@@ -45,7 +45,7 @@ Contendrá la lógica de negocio repartida en modelos y servicios de dominio.
 Contendrá la implementación en tecnologías o servicios externos concretos de las dependencias de tu capa de dominio, como por ejemplo, los repositorios (para mongo, mysql, postgresql, etc).
 ``` >> Gestiona el problema de la inyección de dependencias con recursos como los contenedores de dependencias, el cual se encargará de inyectar las instancias de infrastructura a servicios de dominio; y éstos, a los de aplicación.```
 
-> **UI**:   
+> **Controller**:   
 Estarán todos los puntos de acceso a los servicios de tu aplicación, como pueden ser comandos de consola, y controladores para peticiones vía API HTTP, etc.  
 ``` >> Sólo puede usar clases de la capa de aplicación.```
 
