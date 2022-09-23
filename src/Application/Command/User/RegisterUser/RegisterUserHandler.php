@@ -4,6 +4,7 @@ namespace App\Application\Command\User\RegisterUser;
 
 use App\Application\Command\CommandHandlerInterface;
 use App\Domain\User\Model\User as UserModel;
+use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\ValueObjects\FullName;
 use App\Domain\User\ValueObjects\Id;
 use App\Domain\User\ValueObjects\Password;
@@ -13,9 +14,9 @@ use App\Infrastructure\User\Repository\UserRepository;
 
 class RegisterUserHandler implements CommandHandlerInterface
 {
-    private UserRepository $repository;
+    private UserRepositoryInterface $repository;
 
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
@@ -35,7 +36,7 @@ class RegisterUserHandler implements CommandHandlerInterface
         $user->setUsername($newUser->userName());
         $user->setPassword($newUser->password());
 
-        $this->repository->add($user, true);
+        $this->repository->save($user, true);
     }
 
 }

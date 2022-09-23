@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\User\Repository;
 
+use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Infrastructure\Share\Repository\EntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -13,14 +14,14 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method \App\Infrastructure\User\Repository\User[]    findAll()
  * @method \App\Infrastructure\User\Repository\User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends EntityRepository
+class UserRepository extends EntityRepository implements UserRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, \App\Infrastructure\User\Repository\User::class);
     }
 
-    public function add(\App\Infrastructure\User\Repository\User $entity, bool $flush = false): void
+    public function save(\App\Infrastructure\User\Repository\User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -29,7 +30,7 @@ class UserRepository extends EntityRepository
         }
     }
 
-    public function remove(\App\Infrastructure\User\Repository\User $entity, bool $flush = false): void
+    public function delete(\App\Infrastructure\User\Repository\User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
