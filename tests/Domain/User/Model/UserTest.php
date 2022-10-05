@@ -16,9 +16,9 @@ class UserTest extends TestCase
 
         self::assertEquals($data['id'], $user->id());
         self::assertEquals($data['firstname'], $user->firstName());
-        self::assertEquals($data['lastname'], $user->firstName());
-        self::assertEquals($data['username'], $user->firstName());
-        self::assertEquals($data['password'], $user->firstName());
+        self::assertEquals($data['lastname'], $user->lastName());
+        self::assertEquals($data['username'], $user->userName());
+        self::assertEquals($data['password'], $user->password());
     }
 
     /**
